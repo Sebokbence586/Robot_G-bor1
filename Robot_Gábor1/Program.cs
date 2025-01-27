@@ -10,6 +10,10 @@ namespace Robot_Gábor1
     {
         static void Main(string[] args)
         {
+            string fájl = "program.txt";
+            RobotMenete robotMenete = new RobotMenete(fájl);
+            robotMenete.ElemezdRobotokat();
+            Console.ReadLine();
         }
     }
 }
