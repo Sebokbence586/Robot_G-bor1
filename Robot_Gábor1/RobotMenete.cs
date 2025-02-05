@@ -2,20 +2,20 @@
 using System;
 using System.IO;
 
+
+
+
 namespace Robot_Gábor1
 {
     internal class RobotMenete
     {
-
         private string fájl;
-
         List<Robot> robotok = new List<Robot>();
 
         public RobotMenete(string fájl)
         {
             this.fájl = fájl;
             Beolvas();
-
         }
 
         private void Beolvas()
@@ -24,7 +24,7 @@ namespace Robot_Gábor1
             for (int i = 1; i < sorok.Length; i++) // Az első sor a programok száma, azt nem olvassuk be
             {
                 string sor = sorok[i].Trim();
-                if (!string.IsNullOrEmpty(sor))
+                if (sor.Length > 0)  // Ha a sor nem üres
                 {
                     robotok.Add(new Robot(sor));
                 }
@@ -42,7 +42,8 @@ namespace Robot_Gábor1
                 Console.WriteLine("Az utasítássorozat: {0}", robot);
 
                 // Feladat 1: Egyszerűsíthetőség
-                if (robot.Egyszerusitheto())
+                bool egyszerusitheto = robot.Egyszerusitheto();
+                if (egyszerusitheto)
                 {
                     Console.WriteLine("Egyszerűsíthető.");
                 }
@@ -63,7 +64,7 @@ namespace Robot_Gábor1
 
                 // Feladat 4: Energia költség
                 int energia = robot.EnergiaKolcseg();
-                Console.WriteLine("Energia szükséglet: {0} egység.",energia);
+                Console.WriteLine("Energia szükséglet: {0} egység.", energia);
             }
             else
             {
@@ -72,3 +73,4 @@ namespace Robot_Gábor1
         }
     }
 }
+
